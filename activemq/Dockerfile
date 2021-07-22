@@ -29,7 +29,7 @@ RUN apt-get update \
     && chown -h activemq:activemq ${ACTIVEMQ_HOME} \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
     && echo ${TZ} > /etc/timezone \
-    && apt clean
+    && apt-get clean
 
 USER activemq
 
