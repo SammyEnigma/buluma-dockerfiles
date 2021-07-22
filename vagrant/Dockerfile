@@ -32,6 +32,7 @@ RUN curl -sSL "https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant
 	&& rm -rf /tmp/*.deb
 
 # install the libvirt plugin
-RUN vagrant plugin install vagrant-libvirt
+# RUN vagrant plugin install vagrant-libvirt
+RUN CFLAGS="-I/opt/vagrant/embedded/include/ruby-3.0.0/ruby" vagrant plugin install vagrant-libvirt
 
 ENTRYPOINT [ "vagrant" ]
