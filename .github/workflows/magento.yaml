@@ -48,7 +48,8 @@ jobs:
       run: pwd && ls -a
 
     - name: Build the Docker image
-      run: docker build . --file magento/Dockerfile --tag docker-magento:$(date +%s)
+      # run: docker build . --file magento/Dockerfile --tag docker-magento:$(date +%s)
+      run: cd magento && pwd && ls -a && docker build . --file Dockerfile --tag docker-magento-test:$(date +%s)
 
     - name: Create Issue on Build failure.
       if: failure()
