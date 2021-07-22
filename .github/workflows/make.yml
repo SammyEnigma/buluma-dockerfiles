@@ -37,6 +37,6 @@ jobs:
         # run: make dockerfiles
         # run: make build
         # run: make latest-versions
-        run: make image DIR=vagrant
+        run: make image DIR=consul
         # run: make run DIR=ab
         shell: bash
