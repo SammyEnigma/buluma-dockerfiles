@@ -26,7 +26,7 @@
 # 	set-inform http://ip_of_docker_host:8080/inform
 #
 
-FROM ubuntu:20.04
+FROM ubuntu:16.04
 #TODO upgrade to 21.04
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
