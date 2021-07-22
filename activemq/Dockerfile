@@ -15,9 +15,9 @@ ENV ACTIVEMQ_DOWNLOAD_URL https://archive.apache.org/dist/activemq/${ACTIVEMQ_VE
 ENV ACTIVEMQ_SHA512_VAL 8c9b3216a0378f6377a9ba35f23915a3a52a1c15ac7b316bc06781d6a6ba83ce775534aa0054bd1aa37fb4d285946f914dbb21a14cc485e180a0d86c834df02e
 
 
-RUN apt update \
-    && apt upgrade -y \
-    && apt install bash tzdata curl -y \
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install bash tzdata curl -y \
     && curl ${ACTIVEMQ_DOWNLOAD_URL} -o ${ACTIVEMQ}-bin.tar.gz \
     && if [ "${ACTIVEMQ_SHA512_VAL}" != "$(sha512sum ${ACTIVEMQ}-bin.tar.gz | awk '{print($1)}')" ]; then \
          echo "sha512 values doesn't match! exiting." && exit 1; \

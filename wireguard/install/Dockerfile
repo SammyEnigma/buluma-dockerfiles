@@ -15,7 +15,7 @@ ENV TZ 'Afria/Nairobi'
 
 ENV TZ ${TZ}
 
-RUN apt update && apt -y install \
+RUN apt-get update && apt-get -y install \
 	build-essential \
 	ca-certificates \
 	git \
