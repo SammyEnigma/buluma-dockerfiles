@@ -1,3 +1,4 @@
+# hadolint ignore=DL3022
 FROM golang:1.16-alpine3.13 AS builder
 
 RUN set -e \
