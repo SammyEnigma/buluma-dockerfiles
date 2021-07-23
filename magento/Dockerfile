@@ -10,6 +10,7 @@ RUN a2enmod rewrite
 RUN set -xe \
     && apt-get update \
     && apt-get install -y build-essential     \
+                          wget                \
                           libcurl3            \
                           libcurl3-dev        \
                           libfreetype6        \
