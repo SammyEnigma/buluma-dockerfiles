@@ -14,7 +14,7 @@ RUN set -xe \
                           libcurl3-dev        \
                           libfreetype6        \
                           libfreetype6-dev    \
-                          libicu52            \
+                          libicu52=52.1-6     \
                           libicu-dev          \
                           libjpeg62-turbo     \
                           libjpeg62-turbo-dev \
