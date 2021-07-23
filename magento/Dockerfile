@@ -6,7 +6,8 @@ FROM php:7.3-fpm-buster
 
 ARG MAGENTO_VERSION=2.3.4
 
-RUN apt-get update && apt-get install -y \
+# hadolint ignore=DL3009
+RUN apt-get update && apt-get install -y --no-install-recommends \
   cron \
   git \
   gzip \
@@ -23,7 +24,7 @@ RUN apt-get update && apt-get install -y \
   lsof \
   default-mysql-client \
   vim \
-  zip
+  zip \
 
 RUN docker-php-ext-configure \
   gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
