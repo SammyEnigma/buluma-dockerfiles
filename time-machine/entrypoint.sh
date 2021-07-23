@@ -24,6 +24,7 @@ done
 # cat /etc/passwd | grep ${USER_NAME} >& /dev/null
 cat /etc/passwd | grep "${USER_NAME}" >& /dev/null
 
+# shellcheck SC2181
 if [ $? -ne 0 ];then
     echo "Add user: ${USER_NAME}..."
     adduser -S -H -G root "${USER_NAME}" -u "${USER_ID}"
@@ -37,6 +38,7 @@ chown -R "${USER_NAME}":root "${MOUNT_POINT}"
 
 cat /etc/afp.conf | grep "${USER_NAME}" >& /dev/null
 
+# shellcheck SC2181
 if [ $? -ne 0 ];then
     echo "Update /etc/afp.conf..."
     cat << EOF >> /etc/afp.conf

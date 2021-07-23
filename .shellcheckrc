@@ -1,4 +1,18 @@
 #!/bin/sh
 # shellcheck disable=SC2034
-disable=SC2220,SC2002,SC2181,SC2166
+# disable=SC2220,SC2002,SC2181,SC2166
 # hash=$(cmd hash)    # trim spaces
+
+# Look for 'source'd files relative to the checked script,
+# and also look for absolute paths in /mnt/chroot
+source-path=SCRIPTDIR
+source-path=/mnt/chroot
+
+# Turn off warnings for unquoted variables with safe values
+disable=quote-safe-variables
+
+# Turn off warnings for unassigned uppercase variables
+disable=check-unassigned-uppercase
+
+# Allow [ ! -z foo ] instead of suggesting -n
+disable=SC2220,SC2002,SC2181,SC2166
