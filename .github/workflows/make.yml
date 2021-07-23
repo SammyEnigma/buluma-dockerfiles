@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Authenticate Github
-        uses: actions/labeler@v2
+        uses: actions/labeler@v3.0.2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -35,8 +35,8 @@ jobs:
       - name: make test
         # run: make test
         # run: make dockerfiles
-        run: make build
+        # run: make build
         # run: make latest-versions
-        # run: make image DIR=keepass2
+        run: make image DIR=magento
         # run: make run DIR=ab
         shell: bash

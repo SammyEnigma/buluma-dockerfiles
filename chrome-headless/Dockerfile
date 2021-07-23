@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:21.04
 
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 

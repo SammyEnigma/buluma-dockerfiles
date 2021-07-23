@@ -1,6 +1,8 @@
 FROM debian:bullseye-slim
 
-LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
+LABEL maintainer="buluma <ops@buluma.me.ke>"
+
+ENV TZ 'Afria/Nairobi'
 
 RUN	apt-get update && apt-get install -y \
 	bridge-utils \
@@ -18,6 +20,8 @@ RUN	apt-get update && apt-get install -y \
 	ssh \
 	zlib1g-dev \
 	--no-install-recommends \
+	&& ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo ${TZ} > /etc/timezone \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV	VAGRANT_VERSION 2.2.17
@@ -28,6 +32,7 @@ RUN curl -sSL "https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant
 	&& rm -rf /tmp/*.deb
 
 # install the libvirt plugin
-RUN vagrant plugin install vagrant-libvirt
+# RUN vagrant plugin install vagrant-libvirt
+RUN CFLAGS="-I/opt/vagrant/embedded/include/ruby-3.0.0/ruby" vagrant plugin install vagrant-libvirt
 
 ENTRYPOINT [ "vagrant" ]

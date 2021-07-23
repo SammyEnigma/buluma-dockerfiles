@@ -6,8 +6,8 @@
 #	--name yubico-piv-tool \
 #	jess/yubico-piv-tool
 #
-FROM ubuntu:16.04
-#TODO upgrade to ubuntu20.04
+FROM ubuntu:21.04
+#TODO upgrade to ubuntu21.04
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
 ENV TZ 'Afria/Nairobi'

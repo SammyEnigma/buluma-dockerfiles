@@ -11,6 +11,10 @@ ENV TZ 'Afria/Nairobi'
 
 ENV TZ ${TZ}
 
+ARG CONSUL_VERSION=1.9.7
+
+ENV PATH $PATH:/
+
 LABEL Description="HashiCorp's Consul minimal" \
       "Consul Version"="$CONSUL_VERSION"
 

@@ -5,8 +5,8 @@
 #	-e DISPLAY=unix$DISPLAY \
 #	jess/inkscape
 #
-FROM ubuntu:16.04
-#TODO Upgrade to 20.04
+FROM ubuntu:20.04
+#TODO Upgrade to 21.04 mongodb-org-server : Depends: libssl1.0.0 (>= 1.0.2~beta3) but it is not installable
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
 ENV TZ 'Afria/Nairobi'
