@@ -1,5 +1,5 @@
 # hadolint ignore=DL3022
-FROM golang:1.16-alpine3.13 AS builder
+FROM golang:1.16-alpine3.14 AS builder
 
 RUN set -e \
     && apk upgrade \
