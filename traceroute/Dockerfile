@@ -1,11 +1,9 @@
 FROM debian:bullseye-slim
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
-ENV TZ 'Afria/Nairobi'
+ARG DEBIAN_FRONTEND=noninteractive
 
-ENV TZ ${TZ}
-
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y apt-utils \
 	traceroute \
 	--no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
