@@ -11,6 +11,7 @@ RUN set -xe \
     && apt-get update \
     && apt-get install -y build-essential     \
                           wget                \
+                          sudo                \
                           libcurl3            \
                           libcurl3-dev        \
                           libfreetype6        \
