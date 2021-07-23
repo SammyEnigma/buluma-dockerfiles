@@ -15,8 +15,8 @@ ENV PLUGIN_V2RAY_DOWNLOAD_URL https://github.com/shadowsocks/v2ray-plugin/releas
 #ENV LINUX_HEADERS_DOWNLOAD_URL=http://dl-cdn.alpinelinux.org/alpine/v3.7/main/x86_64/linux-headers-4.4.6-r2.apk
 
 RUN apk upgrade \
-    && apk add bash tzdata rng-tools runit \
-    && apk add --virtual .build-deps \
+    && apk --no-cache add bash tzdata rng-tools runit \
+    && apk --no-cache add --virtual .build-deps \
         autoconf \
         automake \
         build-base \

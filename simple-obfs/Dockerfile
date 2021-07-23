@@ -8,8 +8,8 @@ ENV TZ ${TZ}
 ENV OBFS_DOWNLOAD_URL https://github.com/shadowsocks/simple-obfs.git
 
 RUN apk upgrade --update \
-    && apk add bash tzdata \
-    && apk add --virtual .build-deps \
+    && apk --no-cache add bash tzdata \
+    && apk --no-cache add --virtual .build-deps \
         asciidoc \
         autoconf \
         automake \
