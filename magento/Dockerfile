@@ -14,7 +14,6 @@ RUN set -xe \
                           libcurl3-dev        \
                           libfreetype6        \
                           libfreetype6-dev    \
-                          libicu55            \
                           libicu-dev          \
                           libjpeg62-turbo     \
                           libjpeg62-turbo-dev \
@@ -27,6 +26,8 @@ RUN set -xe \
                           zlib1g              \
                           zlib1g-dev          \
                           zziplib-bin         \
+    && wget http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu52_52.1-3_amd64.deb \
+    && sudo dpkg -i libicu52_52.1-3_amd64.deb \
     && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
     && docker-php-ext-install gd        \
                               intl      \
