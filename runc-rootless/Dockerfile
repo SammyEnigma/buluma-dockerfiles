@@ -31,7 +31,7 @@ COPY --from=runc /usr/bin/runc /usr/bin/runc
 COPY start.sh /usr/bin/start.sh
 ENV HOME /home/user
 RUN useradd --create-home --home-dir $HOME user
-COPY busybox.tar /home/user/busybox.tar
+ADD busybox.tar /home/user/busybox.tar
 RUN chown -R user:user $HOME /run /tmp
 USER user
 WORKDIR $HOME
