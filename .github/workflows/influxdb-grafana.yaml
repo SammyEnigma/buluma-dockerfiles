@@ -1,0 +1,62 @@
+---
+name: influxdb-grafana
+
+on:
+  push:
+    paths:
+      - 'influxdb-grafana/**'
+      - '.github/workflows/influxdb-grafana.yaml'
+
+  schedule:
+    - cron: '0 2,5,7,9,12,14,18,20,22 * * *'
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: yamllint
+        uses: ibiqlik/action-yamllint@v3
+
+      - name: test dir
+        run: ls -a influxdb-grafana/
+
+      - name: Create Issue on Lint failure.
+        if: failure()
+        uses: buluma/create-issue-action@v2.0.0
+        with:
+          title: Influxdb-grafana Lint Test Failed
+          token: ${{secrets.GITHUB_TOKEN}}
+          assignees: ${{github.actor}}
+          labels: bug
+          body: Influxdb-grafana Lint check failed for commit ${{github.sha}}
+
+  build:
+
+    runs-on: ubuntu-latest
+    needs: yamllint
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: test dir
+      run: ls -a influxdb-grafana/
+
+    - name: Run in Dir above
+      run: cd influxdb-grafana && ls -a
+
+    - name: Where are we
+      run: pwd && ls -a
+
+    - name: Build the Docker image
+      # run: docker build . --file influxdb-grafana/Dockerfile --tag docker-influxdb-grafana-test:$(date +%s)
+      run: cd influxdb-grafana && pwd && ls -a && docker build . --file Dockerfile --tag docker-influxdb-grafana-test:$(date +%s)
+
+    - name: Create Issue on Build failure.
+      if: failure()
+      uses: buluma/create-issue-action@v2.0.0
+      with:
+        title: Influxdb-grafana Build Failed
+        token: ${{secrets.GITHUB_TOKEN}}
+        assignees: ${{github.actor}}
+        labels: bug
+        body: Influxdb-grafana build failed for commit ${{github.sha}}

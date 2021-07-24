@@ -33,10 +33,10 @@ jobs:
         with:
           fetch-depth: '2'
       - name: make test
-        run: make test
+        # run: make test
         # run: make dockerfiles
         # run: make build
         # run: make latest-versions
-        # run: make image DIR=traceroute
+        run: make image DIR=influxdb-grafana
         # run: make run DIR=traceroute
         shell: bash
