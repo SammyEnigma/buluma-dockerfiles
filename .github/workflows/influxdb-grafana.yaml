@@ -1,5 +1,5 @@
 ---
-name: influxdb-grafana
+name: Influxdb-Grafana
 
 on:
   push:

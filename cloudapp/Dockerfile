@@ -1,9 +1,5 @@
-FROM	ruby:alpine
+FROM ruby:alpine
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
-
-ENV TZ 'Afria/Nairobi'
-
-ENV TZ ${TZ}
 
 RUN	apk add --no-cache \
 	libcurl
