@@ -88,4 +88,3 @@ jobs:
           context: influxdb-grafana/
           push: true
           tags: buluma/influxdb-grafana:latest
-
