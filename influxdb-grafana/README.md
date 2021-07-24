@@ -1,4 +1,6 @@
-## Table of Contents
+## InfluxDB + Grafana
+
+### Table of Contents
 
 * [Introduction](#introduction)
 * [What is InfluxDB](#what-is-influxdb)
@@ -12,19 +14,19 @@
 * [Reading & Writing Data in InfluxDB](#reading-and-writing-data-in-influxdb)
 * [Next Steps](#next-steps)
 
-## Introduction
+### Introduction
 
 What I love about containers is how fast you can get up and running using a Dockerfile to automate the build of your image. This tutorial will walk you through the process of creating a Dockerfile that will utilize *supervisord* to run a combined install of InfluxDB and nginx for Grafana. At the end of this tutorial, you should have a container configured to accept server metrics information from *collectd*. 
 
-## What is InfluxDB? 
+### What is InfluxDB? 
 
 InfluxDB is a time-series database that has been built to work best with metrics, events, and analytics. The solution is written completely in Go and relies on no external dependencies to run. It is being maintained [here](http://influxdb.com). 
 
-## What is Grafana? 
+### What is Grafana? 
 
 Grafana is a metrics dashboard which plugs into solutions such as Graphite, InfluxDB, and OpenTSDB. You would use Grafana to visualize the various metrics data you are pushing into InfluxDB. In our case the type of metrics we're preparing for are system metrics we hope to gather using [collectd](http://www.collectd.org/).
 
-## The Dockerfile
+### The Dockerfile
 
 You can either create a folder and place your Dockerfile and all configuration files in it or you can clone these files from our repository [here](https://github.com/StackPointCloud/docker-influxdb). We recommend cloning so you capture all required configuration files, plus a pre-built Dockerfile. If you spot an issue or have an improvement, feel free to issue a PR, too!
 
@@ -139,7 +141,7 @@ Putting it all together you should have a file similar to this:
 
     CMD ["supervisord", "-n"]
 
-## Application Configuration Files
+### Application Configuration Files
 
 We are using the following configuration files:
 
@@ -189,7 +191,7 @@ We have enabled *graphite* in InfluxDB's *config.toml* by doing this:
 
 We tell InfluxDB to start the listener on 2003/UDP and set the database for the metrics.
 
-## External Volumes
+### External Volumes
 
 It is very important to understand the ephemeral nature of containers. This means that data created and stored within the container can disappear if the container restarts or is stopped. 
 
@@ -199,7 +201,7 @@ We expose the InfluxDB database path on this line:
 
 This allows us to pass the *-v* switch to *docker* to tell it to map the path in the container to a local path in our host system. When data is written to InfluxDB the it is now not stored within the container itself and is persistent beyond a restart. 
 
-## Building the Container
+### Building the Container
 
 Now that you have put your Dockerfile and configuration files together it is time to build your container. You will need to ensure you're working directory has your Dockerfile and configuration files in it. To build a container from your Dockerfile you would run the following command: 
 
@@ -207,7 +209,7 @@ Now that you have put your Dockerfile and configuration files together it is tim
     
 The *-t* parameter tags the image with the name *influx*. The build will execute the Dockerfile. Inspect the output for any errors. If all looks good you should be ready to start the container up. 
 
-## Running the Container
+### Running the Container
 
 Building a container will not automatically start the container. You will need to do that next. Ensure the **/opt/influxdb** path exists on your host file system then run the following command. 
 
@@ -227,7 +229,7 @@ You can validate the container is running by issuing the command:
 
     docker ps
 
-## Accessing Grafana and InfluxDB
+### Accessing Grafana and InfluxDB
 
 You should now be able to reach your Grafana site by plugging your into your browser: 
 
@@ -241,7 +243,7 @@ The default credential is *root* with the password *root*. You will want to chan
 
 Before Grafana can pull data out of InfluxDB you will need to first create the databases that were defined in *config.js*. These would be *exampledb* and *grafana*. The Influx interface is relatively easy to use so you should be able to do this pretty quickly. 
 
-## Reading and Writing Data in InfluxDB
+### Reading and Writing Data in InfluxDB
 
 You will need to test your InfluxDB installation by pre-populating some dummy data. Use the following command to push some data points into your *exampledb* database. Vary the values so you can create some nice graphs with peaks and troughs. You should be able to run these from the server where the container is running or remotely if you're using a public IP. 
 
@@ -253,6 +255,6 @@ To validate you can read data from InfluxDB you could do this:
 
     curl -G 'http://localhost:8086/db/exampledb/series?u=root&p=root' --data-urlencode "q=select * from foo"
 
-## Next Steps
+### Next Steps
 
 At this point, you should have a single container using supervisor to run nginx for Grafana and InfluxDB as your backend data store. You can now setup and configure collectd to feed information into Influx. We will cover this in a different tutorial. We encourage you to play with this setup in your Data Center. 
