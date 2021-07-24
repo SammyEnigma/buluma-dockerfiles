@@ -1,4 +1,5 @@
 ## InfluxDB + Grafana
+[![Influxdb-Grafana](https://github.com/buluma/dockerfiles/actions/workflows/influxdb-grafana.yaml/badge.svg)](https://github.com/buluma/dockerfiles/actions/workflows/influxdb-grafana.yaml)
 
 ### Table of Contents
 
