@@ -15,4 +15,4 @@ disable=quote-safe-variables
 disable=check-unassigned-uppercase
 
 # Allow [ ! -z foo ] instead of suggesting -n
-disable=SC2220,SC2002,SC2181,SC2166
+disable=SC2220,SC2002,SC2181,SC2166,SC1134
