@@ -2,9 +2,6 @@ FROM python:3.6.10-alpine3.11
 
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
-ENV TZ 'Afria/Nairobi'
-
-ENV TZ ${TZ}
 ENV VERSION v0.2.4
 ENV SOURCE_DIR /usr/local/elastalert
 ENV CONFIG_DIR /etc/elastalert

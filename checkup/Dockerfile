@@ -1,10 +1,6 @@
 FROM golang:alpine as builder
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
-ENV TZ 'Afria/Nairobi'
-
-ENV TZ ${TZ}
-
 RUN	apk --no-cache add \
 	ca-certificates \
 	gcc \
