@@ -3,7 +3,7 @@ Docker OpenSUSE Systemd
 
 This Dockerfile can build containers capable to use systemd.
 
-[![opensuse build status](https://img.shields.io/docker/cloud/build/buluma/opensuse.svg)](https://hub.docker.com/repository/docker/buluma/opensuse)
+[![Opensuse](https://github.com/buluma/dockerfiles/actions/workflows/docker-opensuse-systemd.yml/badge.svg)](https://github.com/buluma/dockerfiles/actions/workflows/docker-opensuse-systemd.yml)
 
 Branches
 --------
