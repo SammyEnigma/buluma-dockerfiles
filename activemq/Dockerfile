@@ -16,7 +16,7 @@ ENV ACTIVEMQ_SHA512_VAL 8c9b3216a0378f6377a9ba35f23915a3a52a1c15ac7b316bc06781d6
 
 
 RUN apt-get update \
-    && apt-get upgrade -y \
+    && apt-get upgrade -y --allow-unauthenticated \
     && apt-get install bash tzdata curl -y --allow-unauthenticated \
     && curl ${ACTIVEMQ_DOWNLOAD_URL} -o ${ACTIVEMQ}-bin.tar.gz \
     && if [ "${ACTIVEMQ_SHA512_VAL}" != "$(sha512sum ${ACTIVEMQ}-bin.tar.gz | awk '{print($1)}')" ]; then \
