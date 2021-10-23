@@ -18,9 +18,9 @@ on:
         description: 'Test stale scenarios'
         required: false
 
-  permissions:
-    issues: write
-    pull-requests: write
+permissions:
+  issues: write
+  pull-requests: write
 
 jobs:
   stale:
