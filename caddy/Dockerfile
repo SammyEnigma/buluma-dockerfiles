@@ -1,5 +1,6 @@
 # hadolint ignore=DL3022
-FROM golang:1.16-alpine3.14 AS builder
+# FROM golang:1.16-alpine3.14 AS builder
+FROM golang:1.17-alpine3.14 AS builder
 
 RUN set -e \
     && apk upgrade \
@@ -23,7 +24,8 @@ RUN set -e \
         --with github.com/imgk/caddy-trojan
     
 
-FROM alpine:3.13 AS dist
+# FROM alpine:3.13 AS dist
+FROM alpine:3.14 AS dist
 
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
