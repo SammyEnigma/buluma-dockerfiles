@@ -9,7 +9,7 @@ on:
       - '.github/workflows/make.yml'
 
   schedule:
-    - cron: '1 18 * * *'
+    - cron: '0 7 * * *'
   # Allows manual workflow run (must in default branch to work)
   workflow_dispatch:
 
@@ -34,9 +34,9 @@ jobs:
           fetch-depth: '2'
       - name: make test
         # run: make test
-        run: make dockerfiles
+        # run: make dockerfiles
         # run: make build
-        # run: make latest-versions
+        run: make latest-versions
         # run: make image DIR=influxdb-grafana
         # run: make run DIR=traceroute
         shell: bash
