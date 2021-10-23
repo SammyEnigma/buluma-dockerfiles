@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Michael Buluma
+LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
 ARG ZOOKEEPER_VERSION=3.6.3
 ARG TAR=apache-zookeeper-${ZOOKEEPER_VERSION}.tar.gz

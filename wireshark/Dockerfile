@@ -33,6 +33,6 @@ RUN chown root:wireshark /usr/bin/dumpcap \
 
 USER wireshark
 
-WORKDIR wireshark
+WORKDIR /wireshark
 
 ENTRYPOINT	[ "wireshark" ]
