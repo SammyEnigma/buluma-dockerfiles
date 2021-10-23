@@ -10,7 +10,7 @@ ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 RUN set -ex \
     && apk upgrade \
-    && apk add bash wget curl ca-certificates tzdata openssl libmagic \
+    && apk add sudo bash wget curl ca-certificates tzdata openssl libmagic \
     # && apk add --virtual .build-deps tar openssl-dev libffi-dev gcc musl-dev \
     && sudo apk add gcc musl-dev python3-dev libffi-dev openssl-dev cargo \
     && mkdir -p ${SOURCE_DIR} ${CONFIG_DIR} \
