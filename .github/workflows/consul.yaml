@@ -11,6 +11,7 @@ on:
 
   schedule:
     - cron: '0 2,5,7,9,12,14,18,20,22 * * *'
+  workflow_dispatch:
 
 jobs:
   yamllint:
