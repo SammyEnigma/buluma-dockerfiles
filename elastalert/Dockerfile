@@ -12,7 +12,7 @@ RUN set -ex \
     && apk upgrade \
     && apk add bash wget curl ca-certificates tzdata openssl libmagic \
     # && apk add --virtual .build-deps tar openssl-dev libffi-dev gcc musl-dev \
-    && sudo apk add gcc musl-dev python3-dev libffi-dev openssl-dev cargo
+    && sudo apk add gcc musl-dev python3-dev libffi-dev openssl-dev cargo \
     && mkdir -p ${SOURCE_DIR} ${CONFIG_DIR} \
     && wget ${DOWNLOAD_URL} -O elastalert.tar.gz \
     && tar -zxf elastalert.tar.gz -C ${SOURCE_DIR} --strip-components 1 \
