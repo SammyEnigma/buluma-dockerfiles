@@ -2,8 +2,6 @@ FROM debian:bullseye-slim
 
 LABEL maintainer="buluma <ops@buluma.me.ke>"
 
-ENV TZ 'Afria/Nairobi'
-
 RUN	apt-get update && apt-get install -y \
 	bridge-utils \
 	ca-certificates \
@@ -24,7 +22,7 @@ RUN	apt-get update && apt-get install -y \
     && echo ${TZ} > /etc/timezone \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENV	VAGRANT_VERSION 2.2.17
+ENV	VAGRANT_VERSION 2.2.18
 
 # download the source
 RUN curl -sSL "https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb" -o /tmp/vagrant-amd64.deb \

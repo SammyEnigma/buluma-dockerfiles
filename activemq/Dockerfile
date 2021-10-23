@@ -2,7 +2,7 @@ FROM openjdk:11.0.2-jre-slim-stretch
 
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
-ENV ACTIVEMQ_VERSION 5.15.8
+ENV ACTIVEMQ_VERSION 5.16.3
 ENV ACTIVEMQ_MQTT     1883
 ENV ACTIVEMQ_AMQP     5672
 ENV ACTIVEMQ_UI       8161
