@@ -41,7 +41,7 @@ jobs:
     - name: test dir
       run: ls -a ab/
 
-    - name: Run in Dir above
+    - name: Run in Dir above.
       run: cd ab && ls -a
 
     - name: Build the Docker image

@@ -21,7 +21,7 @@ jobs:
       - name: test dir
         run: ls -a ansible/
 
-      - name: Create Issue on Lint failure.
+      - name: Create Issue on Lint failure
         if: failure()
         uses: buluma/create-issue-action@v2.0.0
         with:
