@@ -1,80 +1,61 @@
-FROM bitnami/minideb:stretch as build
+FROM debian:bullseye-slim
+LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
-RUN install_packages \
-      curl \
-      ca-certificates \
-      git \
-      autoconf \
-      automake \
-      g++ \
-      protobuf-compiler \
-      zlib1g-dev \
-      libncurses5-dev \
-      libssl-dev \
-      pkg-config \
-      libprotobuf-dev \
-      make
+ENV TZ 'Afria/Nairobi'
 
-# Install Golang
-ENV GOROOT=/go
-ENV GOPATH=/go-home
-ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-RUN curl -L -o go.tar.gz https://dl.google.com/go/go1.9.2.linux-amd64.tar.gz
-RUN mkdir -p $GOPATH/bin
-RUN tar -C / -xzf go.tar.gz
+ENV TZ ${TZ}
 
-ENV BASE=$GOPATH/src/browsh/interfacer
-WORKDIR $BASE
-ADD interfacer $BASE
+# Install bash and other deps so we have them.
+RUN apt-get update && apt-get install -y \
+		bash \
+		bzip2 \
+		ca-certificates \
+		libdbus-glib-1-2 \
+		libgtk-3-0 \
+		libx11-xcb1 \
+		libxt6 \
+		tar \
+		wget \
+		sudo \
+		--no-install-recommends \
+		&& rm -rf /var/lib/apt/lists/*
 
-# Build Browsh
-RUN $BASE/contrib/build_browsh.sh
+# RUN wget "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts" -O /etc/hosts 31/Oct/21
+# RUN sudo wget "https://gist.githubusercontent.com/buluma/f8545730272d6568ff3e96d3183176d3/raw/74d31bdb33c35138b59d826ba5d2ac9fbf1afe0b/hosts" -O /etc/hosts
 
+# Create user and change ownership
+RUN addgroup --gid 666 browsh \
+	&& adduser --uid 666 --home /home/browsh --ingroup browsh browsh
 
-###########################
-# Actual final Docker image
-###########################
-FROM bitnami/minideb:stretch
+WORKDIR /home/browsh
+USER browsh
 
-ENV HOME=/app
-WORKDIR /app
+RUN mkdir -p /home/browsh/bin
 
-COPY --from=build /go-home/src/browsh/interfacer/browsh /app/browsh
+ENV PATH="/bin:/usr/bin:/usr/local/bin:/home/browsh/bin:${PATH}"
 
-RUN install_packages \
-      xvfb \
-      libgtk-3-0 \
-      curl \
-      ca-certificates \
-      bzip2 \
-      libdbus-glib-1-2 \
-      procps
+# Install firefox.
+ENV FIREFOX_VERSION 60.0
+RUN set -x \
+	&& wget "https://ftp.mozilla.org/pub/firefox/releases/${FIREFOX_VERSION}/linux-x86_64/en-US/firefox-${FIREFOX_VERSION}.tar.bz2" -O /tmp/firefox.tar.bz2 \
+	&& ( \
+		cd /tmp \
+		&& bzip2 -d /tmp/firefox.tar.bz2 \
+		&& tar -xf /tmp/firefox.tar -C /home/browsh/bin/ --strip-components 1 \
+	) \
+	&& rm -rf /tmp/firefox* \
+	&& firefox --version
 
-# Block ads, etc. This includes porn just because this image is also used on the
-# public SSH demo: `ssh brow.sh`.
-RUN curl -o /etc/hosts https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts
-
-# Don't use root
-RUN useradd -m user --home /app
-RUN chown user:user /app
-USER user
-
-# Setup Firefox
-ENV PATH="${HOME}/bin/firefox:${PATH}"
-ADD .travis.yml .
-ADD interfacer/contrib/setup_firefox.sh .
-RUN ./setup_firefox.sh
-RUN rm setup_firefox.sh && rm .travis.yml
+# Install browsh.
+ENV BROWSH_VERSION 1.6.4
+RUN wget "https://github.com/browsh-org/browsh/releases/download/v${BROWSH_VERSION}/browsh_${BROWSH_VERSION}_linux_amd64" -O /home/browsh/bin/browsh \
+	&& chmod a+x /home/browsh/bin/browsh
 
 # Firefox behaves quite differently to normal on its first run, so by getting
 # that over and done with here when there's no user to be dissapointed means
 # that all future runs will be consistent.
-RUN TERM=xterm script \
-  --return \
-  -c "/app/browsh" \
-  /dev/null \
-  >/dev/null & \
-  sleep 10
+RUN TERM=xterm browsh & \
+		pidsave=$!; \
+		sleep 10; kill $pidsave || true;
 
-CMD ["/app/browsh"]
-
+ENTRYPOINT [ "browsh" ]
