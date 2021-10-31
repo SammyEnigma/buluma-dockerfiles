@@ -9,3 +9,5 @@ RUN mkdir /target && mkdir /backup
 ENV PREFIX backup
 
 RUN /app/command.sh
+
+RUN ls -ltr /target
