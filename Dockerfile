@@ -8,4 +8,4 @@ RUN ls -a /app
 RUN mkdir /target && mkdir /backup
 ENV PREFIX backup
 
-RUN command.sh
+RUN /command.sh
