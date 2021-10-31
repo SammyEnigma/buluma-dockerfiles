@@ -16,11 +16,12 @@ RUN apt-get update && apt-get install -y \
 		libxt6 \
 		tar \
 		wget \
+		sudo \
 		--no-install-recommends \
 		&& rm -rf /var/lib/apt/lists/*
 
 # RUN wget "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts" -O /etc/hosts 31/Oct/21
-RUN wget "https://gist.githubusercontent.com/buluma/f8545730272d6568ff3e96d3183176d3/raw/74d31bdb33c35138b59d826ba5d2ac9fbf1afe0b/hosts" -O /etc/hosts
+RUN sudo wget "https://gist.githubusercontent.com/buluma/f8545730272d6568ff3e96d3183176d3/raw/74d31bdb33c35138b59d826ba5d2ac9fbf1afe0b/hosts" -O /etc/hosts
 
 # Create user and change ownership
 RUN addgroup --gid 666 browsh \
