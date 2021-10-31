@@ -4,3 +4,8 @@ COPY . /app
 # RUN make /app
 # CMD python /app/app.py
 RUN ls -a /app
+
+RUN mkdir /target && mkdir /backup
+ENV PREFIX backup
+
+RUN command.sh
