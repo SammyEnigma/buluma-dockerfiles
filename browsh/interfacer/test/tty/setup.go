@@ -14,7 +14,8 @@ import (
 	ginkgo "github.com/onsi/ginkgo"
 	gomega "github.com/onsi/gomega"
 
-	"github.com/browsh-org/browsh/interfacer/src/browsh"
+	// "github.com/browsh-org/browsh/interfacer/src/browsh"
+	"github.com/buluma/dockerfiles/tree/main/browsh/interfacer/src/browsh"
 	"github.com/spf13/viper"
 )
 
