@@ -4,7 +4,8 @@
 # Error relocating ./consul: __fprintf_chk: symbol not foundError relocating ./consul: __fprintf_chk: symbol not found
 # rather than downloading glibc with a tonne of extra commands, just switch to debian
 #FROM alpine:latest
-FROM debian:latest
+# FROM debian:latest
+FROM debian:stable
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
 ENV TZ 'Afria/Nairobi'
