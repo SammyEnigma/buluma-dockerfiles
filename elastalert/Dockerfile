@@ -16,7 +16,8 @@ RUN set -ex \
     && sudo apk add --virtual .build-deps tar gcc musl-dev python3-dev libffi-dev openssl-dev cargo \
     # && curl https://sh.rustup.rs -sSf | sh -s -- -y \
     && mkdir -p ${SOURCE_DIR} ${CONFIG_DIR} \
-    && wget ${DOWNLOAD_URL} -O elastalert.tar.gz \
+    # && wget ${DOWNLOAD_URL} -O elastalert.tar.gz \
+    && wget -nv ${DOWNLOAD_URL} -O elastalert.tar.gz \
     && tar -zxf elastalert.tar.gz -C ${SOURCE_DIR} --strip-components 1 \
     && (cd ${SOURCE_DIR} \
     && pip install --upgrade pip \
