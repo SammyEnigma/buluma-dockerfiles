@@ -85,4 +85,4 @@ jobs:
         with:
           context: docker-opensuse-systemd/
           push: true
-          tags: buluma/docker-opensuse-systemd:latest, buluma/docker-opensuse-systemd:1.01
+          tags: buluma/docker-opensuse-systemd:latest, buluma/docker-opensuse-systemd:15.1
