@@ -6,7 +6,7 @@
 #       s3 ls
 #
 
-FROM buluma/alpine:latest
+FROM buluma/alpine:3.15
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
 ENV TZ 'Afria/Nairobi'

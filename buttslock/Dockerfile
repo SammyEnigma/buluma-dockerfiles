@@ -8,7 +8,7 @@
 # - /var/run/dbus, the X11 socket (typically /tmp/.X11-unix)
 # And it also requires the USER and DISPLAY environment variables to be set.
 #
-FROM buluma/alpine:latest
+FROM buluma/alpine:3.15
 
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
