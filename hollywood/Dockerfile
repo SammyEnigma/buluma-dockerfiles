@@ -5,7 +5,7 @@ ENV TZ 'Afria/Nairobi'
 
 ENV TZ ${TZ}
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 	byobu \
 	hollywood \
 	locate \

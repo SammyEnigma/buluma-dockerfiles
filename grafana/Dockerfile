@@ -15,7 +15,7 @@ ENV GRAFANA_URL=https://grafanarel.s3.amazonaws.com/builds/${GRAFANA_FILE}
 
 RUN set -xe \
     && apt-get update \
-    && apt-get install -y ca-certificates \
+    && apt-get install -y --no-install-recommends ca-certificates \
                           libfontconfig \
                           wget \
     && wget ${GRAFANA_URL} \

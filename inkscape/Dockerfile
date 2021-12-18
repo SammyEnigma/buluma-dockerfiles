@@ -15,12 +15,12 @@ ENV TZ ${TZ}
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 	python-software-properties \
 	software-properties-common
 
 RUN add-apt-repository ppa:inkscape.dev/stable && \
-	apt-get update && apt-get install -y \
+	apt-get update && apt-get install -y --no-install-recommends \
 	inkscape \
 	--no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
