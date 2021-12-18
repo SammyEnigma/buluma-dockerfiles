@@ -37,7 +37,7 @@ RUN apk add --no-cache \
 	openssl-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN pip install \
+RUN pip install --no-cache-dir \
 	lxml \
 	pyopenssl
 
