@@ -16,8 +16,7 @@ ARG CONSUL_VERSION=1.9.7
 
 ENV PATH $PATH:/
 
-LABEL description="HashiCorp's Consul minimal \
-"Consul Version"="$CONSUL_VERSION""
+LABEL description="HashiCorp's Consul minimal - version: "$CONSUL_VERSION" "
 
 # faster, cached
 #COPY consul /
