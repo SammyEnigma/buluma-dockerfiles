@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM buluma/alpine:latest
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
 ENV TZ 'Afria/Nairobi'
