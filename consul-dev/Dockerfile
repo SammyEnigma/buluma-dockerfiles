@@ -53,7 +53,8 @@
 
 # CMD ["/consul", "agent", "-dev", "-data-dir", "/tmp", "-client", "0.0.0.0"]
 
-FROM golang:latest as builder
+# FROM golang:latest as builder
+FROM golang:1.18-rc as builder
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
 ENV TZ 'Afria/Nairobi'

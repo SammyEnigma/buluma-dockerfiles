@@ -1,4 +1,5 @@
-FROM alpine:latest
+#FROM alpine:latest
+FROM alpine:3.15
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
 ENV TZ 'Afria/Nairobi'
