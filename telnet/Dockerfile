@@ -3,7 +3,7 @@
 #	--log-driver none \
 #	jess/telnet towel.blinkenlights.nl
 #
-FROM buluma/alpine:latest
+FROM buluma/alpine:3.15
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
 ENV TZ 'Afria/Nairobi'
