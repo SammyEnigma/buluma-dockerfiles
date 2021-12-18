@@ -45,13 +45,15 @@ EXPOSE 5050
 
 ENV COUCHPOTATO_VERSION master
 
+# RUN git clone git@github.com:RuudBurger/CouchPotatoServer.git /usr/src/couchpotato
+
 RUN git clone https://github.com/RuudBurger/CouchPotatoServer.git /usr/src/couchpotato \
 	&& ( \
 		cd /usr/src/couchpotato \
 		&& git checkout "${COUCHPOTATO_VERSION}" \
 	)
 
-WORKDIR /usr/src/couchpotato
+# WORKDIR /usr/src/couchpotato
 
 ENTRYPOINT [ "python", "CouchPotato.py", "--debug" ]
 CMD [ "--data_dir", "/data" ]
