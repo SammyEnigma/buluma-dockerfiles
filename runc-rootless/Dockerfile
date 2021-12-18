@@ -20,7 +20,7 @@ RUN git clone https://github.com/jessfraz/runc.git "$GOPATH/src/github.com/openc
 	&& make static BUILDTAGS="seccomp" EXTRA_FLAGS="-buildmode pie" EXTRA_LDFLAGS="-extldflags \\\"-fno-PIC -static\\\"" \
 	&& mv runc /usr/bin/runc
 
-FROM alpine:latest
+FROM buluma/alpine:3.15
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
 RUN apk add --no-cache \

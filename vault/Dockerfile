@@ -43,7 +43,7 @@ RUN git checkout "${VAULT_VERSION}"
 RUN XC_ARCH="amd64" XC_OS="linux" XC_OSARCH="linux/amd64" LD_FLAGS=" -extldflags -static " make bootstrap static-dist bin \
 	&& mv bin/vault /usr/bin/vault
 
-FROM alpine:latest
+FROM buluma/alpine:3.15
 
 COPY --from=builder /usr/bin/vault /usr/bin/vault
 COPY --from=builder /etc/ssl/certs/ /etc/ssl/certs

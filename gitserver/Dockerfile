@@ -5,7 +5,7 @@
 # 	-e "PUBKEY=$(cat ~/.ssh/id_ed25519.pub)" \
 # 	--name gitserver \
 # 	jess/gitserver
-FROM alpine:latest
+FROM buluma/alpine:3.15
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
 ENV HOME /root

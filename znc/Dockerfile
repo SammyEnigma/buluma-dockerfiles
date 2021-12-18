@@ -6,7 +6,7 @@
 #	-v /volumes/znc:/home/user/.znc \
 #	jess/znc
 #
-FROM alpine:latest
+FROM buluma/alpine:3.15
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
 ENV TZ 'Afria/Nairobi'
