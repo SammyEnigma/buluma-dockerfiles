@@ -1,5 +1,5 @@
 # FROM debian:bullseye-slim
-FROM buluma/traceroute
+FROM buluma/traceroute:1.01
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
 ARG DEBIAN_FRONTEND=noninteractive
