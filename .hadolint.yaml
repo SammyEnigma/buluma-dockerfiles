@@ -1,6 +1,6 @@
+---
 # failure-threshold: ignore
 # no-fail: true
-
 
 failure-threshold: ignore               # name of threshold level (error | warning | info | style | ignore | none)
 # format: string                        # Output format (tty | json | checkstyle | codeclimate | gitlab_codeclimate | codacy)
