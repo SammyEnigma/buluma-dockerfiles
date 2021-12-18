@@ -27,7 +27,7 @@ RUN CGO_ENABLED=0 go build -a -tags netgo -ldflags '-w -extldflags "-static"' \
 	-o bin/terraform && \
 	mv bin/terraform /usr/bin/terraform
 
-FROM alpine:latest
+FROM buluma/alpine:3.15
 
 RUN apk add --no-cache \
 	bash \

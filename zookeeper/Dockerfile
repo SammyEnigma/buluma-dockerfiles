@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM buluma/alpine:3.15
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
 ARG ZOOKEEPER_VERSION=3.6.3
