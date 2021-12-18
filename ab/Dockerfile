@@ -4,7 +4,7 @@
 # docker run --rm -it \
 # 	buluma/ab
 #
-FROM buluma/alpine:latest
+FROM buluma/alpine:3.15
 LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
 
 RUN apk --no-cache add \
