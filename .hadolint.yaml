@@ -4,7 +4,9 @@
 
 failure-threshold: ignore               # name of threshold level (error | warning | info | style | ignore | none)
 # format: string                        # Output format (tty | json | checkstyle | codeclimate | gitlab_codeclimate | codacy)
-ignored: DL3001                         # list of rules
+ignored:                                # list of rules
+  - DL3001
+  - SC1010
 label-schema:                           # See Linting Labels below for specific label-schema details
   author: Michael Buluma                # Your name
   contact: bulumaknight@gmail.com       # email address
