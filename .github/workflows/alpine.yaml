@@ -85,4 +85,4 @@ jobs:
         with:
           context: alpine/
           push: true
-          tags: buluma/alpine:latest
+          tags: buluma/alpine:latest, buluma/alpine:3.15
