@@ -17,10 +17,4 @@ label-schema:                           # See Linting Labels below for specific 
   # license: string                     # spdx
 no-color: false                         # true | false
 no-fail: true                           # true | false
-# override:
-  # error: [string]                     # list of rules
-  # warning: [string]                   # list of rules
-  # info: [string]                      # list of rules
-  # style: [string]                     # list of rules
-strict-labels: false                    # true | false
 # trustedRegistries: string | [string]  # registry or list of registries
