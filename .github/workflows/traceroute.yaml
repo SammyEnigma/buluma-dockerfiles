@@ -84,4 +84,4 @@ jobs:
         with:
           context: traceroute/
           push: true
-          tags: buluma/traceroute:latest
+          tags: buluma/traceroute:latest, buluma/traceroute:1.01
