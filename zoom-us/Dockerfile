@@ -58,7 +58,7 @@ ARG ZOOM_URL=https://zoom.us/client/latest/zoom_amd64.deb
 #install zoom
 RUN curl -sSL $ZOOM_URL -o /tmp/zoom_setup.deb \
 	&& dpkg -i /tmp/zoom_setup.deb \
-	&& apt-get -f install -y \
+	&& apt-get -f install -y --no-install-recommends \
 	&& rm /tmp/zoom_setup.deb \
 	&& rm -rf /var/lib/apt/lists/*
 

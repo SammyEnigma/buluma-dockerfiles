@@ -15,7 +15,7 @@ RUN a2enmod rewrite
 
 RUN set -xe \
     && apt-get update \
-    && apt-get install -y clamav \
+    && apt-get install -y --no-install-recommends clamav \
                           graphviz \
                           libicu-dev \
                           libjpeg62-turbo \

@@ -14,7 +14,7 @@ ENV TZ 'Afria/Nairobi'
 
 ENV TZ ${TZ}
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 	software-properties-common \
 	--no-install-recommends && \
 	add-apt-repository ppa:yubico/stable && \

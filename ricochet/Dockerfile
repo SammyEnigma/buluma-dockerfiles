@@ -19,7 +19,7 @@ ENV TZ ${TZ}
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN mkdir -p /etc/xdg/QtProject && \
-	apt-get update && apt-get install -y \
+	apt-get update && apt-get install -y --no-install-recommends \
 	dirmngr \
 	gnupg \
 	libasound2 \
