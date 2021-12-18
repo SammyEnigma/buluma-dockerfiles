@@ -1,4 +1,4 @@
-FROM opensuse/leap
+FROM opensuse/leap:15.4
 
 LABEL maintainer="Michael Buluma"
 
