@@ -21,7 +21,8 @@ RUN git clone https://github.com/jessfraz/runc.git "$GOPATH/src/github.com/openc
 	&& mv runc /usr/bin/runc
 
 FROM alpine:latest
-MAINTAINER Jessica Frazelle <jess@linux.com>
+LABEL maintainer "Michael Buluma <ops@buluma.co.ke>"
+
 RUN apk add --no-cache \
 	bash \
 	shadow \
