@@ -4,7 +4,7 @@ LABEL maintainer="Michael Buluma"
 
 ENV container=docker
 
-RUN zypper install -y dbus-1-1.12.2-8.11.2.x86_64 systemd-sysvinit-249.7-150400.1.8.x86_64 && zypper clean && \
+RUN zypper install -y dbus-1=1.12.2-8.11.2.x86_64 systemd-sysvinit=249.7-150400.1.8.x86_64 && zypper clean && \
     cd /usr/lib/systemd/system/sysinit.target.wants/ || exit ; \
     for i in *; do [ $i = systemd-tmpfiles-setup.service ] || rm -f $i; done ; \
     rm -f /usr/lib/systemd/system/multi-user.target.wants/* ; \
