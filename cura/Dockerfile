@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM buluma/ubuntu:bionic
 
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 
