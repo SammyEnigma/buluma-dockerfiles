@@ -43,11 +43,11 @@ jobs:
       run: ls -a jenkins/
 
     - name: Run in Dir above
-      run: cd jenkins && ls -a
+      run: cd jenkins && cd arm && ls -a
 
     - name: Build the Docker image
       # run: docker build . --file activemq/Dockerfile --tag docker-activemq-test:$(date +%s)
-      run: cd jenkins && pwd && ls -a && docker build . --file Dockerfile --tag docker-jenkins-test:$(date +%s)
+      run: cd jenkins && cd arm && pwd && ls -a && docker build . --file Dockerfile --tag docker-jenkins-test:$(date +%s)
 
     - name: Create Issue on jenkins Build failure.
       if: failure()
