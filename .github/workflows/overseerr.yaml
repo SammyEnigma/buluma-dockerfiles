@@ -47,7 +47,7 @@ jobs:
 
     - name: Build the Docker image
       # run: docker build . --file activemq/Dockerfile --tag docker-activemq-test:$(date +%s)
-      # run: cd overseerr && pwd && ls -a && docker build . --file Dockerfile --tag docker-activemq-test:$(date +%s)
+      run: cd overseerr && pwd && ls -a && docker-compose up -d
 
     - name: Create Issue on Build failure.
       if: failure()
