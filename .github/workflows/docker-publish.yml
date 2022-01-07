@@ -11,10 +11,10 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron: '0 2,5,7,9,12,14,18,20,22 * * *'
     
-  push:
-    branches: [ main ]
+  # push:
+    # branches: [ main ]
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    # tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
