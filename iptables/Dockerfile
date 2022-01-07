@@ -3,7 +3,7 @@
 #
 
 FROM buluma/alpine:3.15
-MAINTAINER EasyPi Software Foundation
+MAINTAINER Michael Buluma
 
 RUN apk add -U iproute2 && ln -s /usr/lib/tc /lib/tc
 
