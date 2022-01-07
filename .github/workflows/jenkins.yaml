@@ -1,5 +1,5 @@
 ---
-name: iptables
+name: jenkins-arm
 
 on:
   push:
