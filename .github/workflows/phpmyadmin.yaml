@@ -4,7 +4,7 @@ name: PhpMyAdmin
 on:
   push:
     paths:
-      - 'phpmyadmin/**'
+      - 'phpmyadmin/arm/**'
       - '.github/workflows/phpmyadmin.yaml'
 
   schedule:
@@ -43,11 +43,11 @@ jobs:
       run: ls -a phpmyadmin/
 
     - name: Run in Dir above
-      run: cd phpmyadmin && ls -a
+      run: cd phpmyadmin && cd arm && ls -a
 
     - name: Build the Docker image
       # run: docker build . --file activemq/Dockerfile --tag docker-activemq-test:$(date +%s)
-      run: cd phpmyadmin && pwd && ls -a && docker build . --file Dockerfile --tag docker-phpmyadmin-test:$(date +%s)
+      run: cd phpmyadmin && cd arm && pwd && ls -a && docker build . --file Dockerfile --tag docker-phpmyadmin-test:$(date +%s)
 
     - name: Create Issue on Build failure.
       if: failure()
@@ -83,6 +83,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: phpmyadmin/
+          context: phpmyadmin/arm/
           push: true
           tags: buluma/phpmyadmin:latest
