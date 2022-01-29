@@ -1,3 +1,4 @@
+---
 jenkins:
   image: jenkins/jenkins:lts-alpine
   ports:
