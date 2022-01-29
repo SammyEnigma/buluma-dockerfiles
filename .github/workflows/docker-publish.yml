@@ -12,9 +12,9 @@ on:
     - cron: '0 2,5,7,9,12,14,18,20,22 * * *'
     
   # push:
-    # branches: [ main ]
-    # Publish semver tags as releases.
-    # tags: [ 'v*.*.*' ]
+  # branches: [ main ]
+  # Publish semver tags as releases.
+  # tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
