@@ -86,4 +86,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ${{ github.repository }}:latest
+            buluma/puppeteer-base:latest
