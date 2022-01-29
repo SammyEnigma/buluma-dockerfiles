@@ -88,4 +88,3 @@ jobs:
           push: true
           tags: |
             buluma/docker-kubectl:latest
-
