@@ -90,5 +90,3 @@ jobs:
           push: true
           tags: |
             buluma/confluence:latest
-
-
