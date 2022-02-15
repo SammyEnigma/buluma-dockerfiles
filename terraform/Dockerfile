@@ -17,7 +17,7 @@ RUN	apk add --no-cache \
 	musl-dev \
 	zip
 
-ENV TERRAFORM_VERSION v1.0.9
+ENV TERRAFORM_VERSION v1.1.5
 
 RUN git clone --depth 1 --branch ${TERRAFORM_VERSION} https://github.com/hashicorp/terraform.git /go/src/github.com/hashicorp/terraform
 
