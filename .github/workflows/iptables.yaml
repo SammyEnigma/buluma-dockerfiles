@@ -1,11 +1,11 @@
 ---
-name: Jira
+name: iptables
 
 on:
   push:
     paths:
-      - 'jira/**'
-      - '.github/workflows/jira.yaml'
+      - 'iptables/**'
+      - '.github/workflows/iptables.yaml'
 
   schedule:
     - cron: '0 2,5,7,9,12,14,18,20,22 * * *'
@@ -20,17 +20,17 @@ jobs:
         uses: ibiqlik/action-yamllint@v3
 
       - name: test dir
-        run: ls -a jira/
+        run: ls -a iptables/
 
-      - name: Create Issue on Lint failure.
+      - name: Create Issue on iptables Lint failure.
         if: failure()
         uses: buluma/create-issue-action@v2.0.0
         with:
-          title: Jira Lint Test Failed
+          title: ActiveMQ Lint Test Failed
           token: ${{secrets.GITHUB_TOKEN}}
           assignees: ${{github.actor}}
           labels: bug
-          body: Jira Lint check failed for commit ${{github.sha}}
+          body: Lint check failed for commit ${{github.sha}}
 
   build:
 
@@ -40,30 +40,27 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: test dir
-      run: ls -a jira/
+      run: ls -a iptables/
 
     - name: Run in Dir above
-      run: cd jira && ls -a
-
-    - name: Where are we
-      run: pwd && ls -a
+      run: cd iptables && ls -a
 
     - name: Build the Docker image
-      # run: docker build . --file jira/Dockerfile --tag docker-jira-test:$(date +%s)
-      run: cd jira && pwd && ls -a && docker build . --file Dockerfile --tag docker-jira-test:$(date +%s)
+      # run: docker build . --file activemq/Dockerfile --tag docker-activemq-test:$(date +%s)
+      run: cd iptables && pwd && ls -a && docker build . --file Dockerfile --tag docker-iptables-test:$(date +%s)
 
-    - name: Create Issue on Build failure.
+    - name: Create Issue on iptables Build failure.
       if: failure()
       uses: buluma/create-issue-action@v2.0.0
       with:
-        title: Jira Build Failed
+        title: ActiveMQ Build Failed
         token: ${{secrets.GITHUB_TOKEN}}
         assignees: ${{github.actor}}
         labels: bug
-        body: Jira build failed for commit ${{github.sha}}
-  
+        body: Lint check failed for commit ${{github.sha}}
+
   push_to_registry:
-    name: Push Docker image to Docker Hub.
+    name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -86,6 +83,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: jira/
+          context: iptables/
           push: true
-          tags: buluma/jira:latest
+          tags: buluma/iptables:latest

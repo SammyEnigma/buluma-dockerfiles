@@ -7,7 +7,7 @@
 #
 
 #FROM alpine:latest
-FROM alpine:3.15
+FROM buluma/alpine:3.15
 
 LABEL maintainer "Michael Buluma <buluma@buluma.co.ke>"
 

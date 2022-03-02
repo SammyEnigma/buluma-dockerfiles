@@ -5,7 +5,7 @@ ENV TZ 'Afria/Nairobi'
 
 ENV TZ ${TZ}
 
-ENV ZOOKEEPER_VERSION 3.6.1
+ENV ZOOKEEPER_VERSION 3.7.0
 ENV PATH $PATH:/opt/zookeeper/bin/
 
 # the start files for zookeeper use bash
